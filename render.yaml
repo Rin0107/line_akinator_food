@@ -1,0 +1,21 @@
+databases:
+  - name: line_akinator_food_2
+    databaseName: line_akinator_food_2
+    user: line_akinator_food_2
+    region: singapore
+
+services:
+  - type: web
+    name: line_akinator_food_2
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: line_akinator_food_2
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
