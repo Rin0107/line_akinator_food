@@ -84,3 +84,4 @@ production:
   database: line_akinator_food_2_production
   username: line_akinator_food_2
   password: <%= ENV['LINE_AKINATOR_FOOD_2_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
