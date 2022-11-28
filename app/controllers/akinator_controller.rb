@@ -69,7 +69,7 @@ class AkinatorController < ApplicationController
     def handle_message(event, user_id)
         if event.message['text'] == "終了"
             # 途中終了するときの処理
-            reply_content = set_butten_template(altText: "また遊んでね！", title: "今回は終了しました。\nまた遊ぶときは「はじめる」をタップ！", text: "はじめる")
+            reply_content = set_butten_template(altText: "また遊んでね！", title: "今回は終了しました。\nまた遊ぶときは「はじめる」をタップ！\n（「はじめる」してから最初の質問まで15秒ほどかかります。。。）", text: "はじめる")
             reply_content(event, reply_content)
             user_status = get_user_status(user_id)
             reset_status(user_status)
@@ -413,7 +413,7 @@ class AkinatorController < ApplicationController
             reply_content = set_confirm_template(question.message)
             # ser_confirm_templateでquestion.messageに対して「はい」「いいえ」の確認テンプレートを作成、返り値はreply_content={}
         else
-            reply_content = set_butten_template(altText: "今日何食べる？", title: "「はじめる」をタップ！", text: "はじめる")
+            reply_content = set_butten_template(altText: "今日何食べる？", title: "「はじめる」をタップ！\n（「はじめる」してから最初の質問まで15秒ほどかかります。。。）", text: "はじめる")
             # set_butten_templateでtitleのvalueをテキストに、textのvalueをボタンにする。
         end
         return reply_content  
