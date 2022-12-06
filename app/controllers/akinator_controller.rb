@@ -4,6 +4,17 @@ class AkinatorController < ApplicationController
     require 'uri'
 
     def index
+        # Solutionsを取得
+        @solutions = Solution.all
+        # Questionsを取得
+        @questions = Question.all
+        # 空のハッシュを生成
+        @features = {}
+        solutions.each do |s|
+            # featuresにkey:s.id, value:s.featuresを代入
+            festures[s.id] = s.features
+        end
+            
     end
     
     def reply_content(event, messages)
