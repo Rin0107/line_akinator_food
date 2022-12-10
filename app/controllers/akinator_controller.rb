@@ -10,9 +10,9 @@ class AkinatorController < ApplicationController
         @questions = Question.all
         # 空のハッシュを生成
         @features = {}
-        solutions.each do |s|
+        @solutions.each do |s|
             # featuresにkey:s.id, value:s.featuresを代入
-            festures[s.id] = s.features
+            @festures[s.id] = s.features
         end
             
     end
