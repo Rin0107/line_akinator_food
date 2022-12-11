@@ -18,11 +18,11 @@
                 <th><%= q.message %></th>
                 <% end %>
             </tr>
-            <% @features.each do |feature| %>    
+            <% @features.each do |key, values| %>    
                 <tr>
-                    <th><%= feature.keys %></th>
-                    <% feature.each do |f| %>
-                        <th><%= f.value %></th>
+                    <th><%= key %></th>
+                    <% values.each do |value| %>
+                        <th><%= value %></th>
                     <% end %>
                 </tr>
             <% end %>
