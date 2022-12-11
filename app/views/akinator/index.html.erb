@@ -16,7 +16,7 @@
             <% @solutions.each do |s| %>    
                 <tr>
                     <th><%= s.name %></th>
-                    <% s.features.each do |f| %>
+                    <% s.features.value.each do |f| %>
                         <th><%= f %></th>
                     <% end %>
                 </tr>
