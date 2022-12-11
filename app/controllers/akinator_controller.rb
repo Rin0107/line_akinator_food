@@ -13,7 +13,7 @@ class AkinatorController < ApplicationController
         @solutions.each do |s|
             s_features = []
             s.features.each do |f|
-                s_features.add(f.value)
+                s_features.push(f.value)
             end
             @features[s.name] = s_features
         end
