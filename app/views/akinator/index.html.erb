@@ -16,8 +16,8 @@
             <% @solutions.each do |s| %>    
                 <tr>
                     <th><% s.name %></th>
-                    <% @features.each do |f| %>
-                        <th><% f.value %></th>
+                    <% s.features.each do |f| %>
+                        <th><% f %></th>
                     <% end %>
                 </tr>
             <% end %>
