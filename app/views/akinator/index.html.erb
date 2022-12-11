@@ -6,6 +6,11 @@
     </head>
     <body>
         <h1>今日何食べる？</h1>
+        <h2>以下の料理を差別化する特徴がありません。</h2>
+        <% @unidentifiable_features.each do |unidentifiable_feature| %>
+            <% unidentifiable_solutions = @features.select{|k,v| v == unidentifiable_feature}.keys %>
+            <p><%= unidentifiable_solutions%>を差別化する特徴がありません。</p>
+        <% end %>
         <table border="1">
             <tr>
                 <th>料理\質問</th>
@@ -13,10 +18,10 @@
                 <th><%= q.message %></th>
                 <% end %>
             </tr>
-            <% @solutions.each do |s| %>    
+            <% @features.each do |feature| %>    
                 <tr>
-                    <th><%= s.name %></th>
-                    <% s.features.each do |f| %>
+                    <th><%= feature.keys %></th>
+                    <% feature.each do |f| %>
                         <th><%= f.value %></th>
                     <% end %>
                 </tr>

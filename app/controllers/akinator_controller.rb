@@ -8,13 +8,18 @@ class AkinatorController < ApplicationController
         @solutions = Solution.all
         # Questionsを取得
         @questions = Question.all
-        # 空のハッシュを生成
-        # @features = {}
-        # @solutions.each do |s|
-        #     # featuresにkey:s.id, value:s.featuresを代入
-        #     @features.store(s.features)
-        # end
-            
+        # 空の配列を生成
+        @features = {}
+        @solutions.each do |s|
+            s_features = []
+            s.features.each do |f|
+                s_features.add(f.value)
+            end
+            @features[s.name] = s_features
+        end
+        # feature.valuesが一致するs.nameをまとめるため、Setを準備
+        set = Set.new(@features.values)
+        @unidentifiable_features = set.to_a
     end
     
     def reply_content(event, messages)
