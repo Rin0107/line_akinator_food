@@ -7,10 +7,8 @@
     <body>
         <h1>今日何食べる？</h1>
         <h2>以下の料理を差別化する特徴がありません。</h2>
-        <% @unidentifiable_features.each do |unidentifiable_feature| %>
-            <% unidentifiable_solutions = @features.select{|k,v| v == unidentifiable_feature}.keys %>
-            <p><%= unidentifiable_solutions%>を差別化する特徴がありません。</p>
-        <% end %>
+        <% @unidentifiable_solutions.each do |unidentifiable_solution|>
+            <p><%= unidentifiable_solution%>を差別化する特徴がありません。</p>
         <table border="1">
             <tr>
                 <th>料理\質問</th>

@@ -19,7 +19,14 @@ class AkinatorController < ApplicationController
         end
         # feature.valuesが一致するs.nameをまとめるため、Setを準備
         set = Set.new(@features.values)
-        @unidentifiable_features = set.to_a
+        unidentifiable_features = set.to_a
+        @unidentifiable_solutions = []
+        unidentifiable_features.each do |unidentifiable_feature|
+            gathered_solutions = @features.select{|k,v| v == unidentifiable_feature}.keys
+            if gathered_solutions.length > 1
+                @unidentifiable_solutions.push(gathered_solutions)
+            end
+        end
     end
     
     def reply_content(event, messages)
