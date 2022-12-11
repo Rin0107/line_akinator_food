@@ -12,7 +12,7 @@ class AkinatorController < ApplicationController
         @features = {}
         @solutions.each do |s|
             # featuresにkey:s.id, value:s.featuresを代入
-            @festures[s.id] = s.features
+            @festures.store(s.id, s.features)
         end
             
     end
