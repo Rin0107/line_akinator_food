@@ -1,1 +1,34 @@
- <h1>Hello Rails!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>今日何食べる？</title>
+    </head>
+    <body>
+        <h1>今日何食べる？</h1>
+        <p>友達追加はこちらから→<a href="https://lin.ee/x6IKcHDg">今日何食べる？</a></p>
+        <h2>以下の料理を差別化する特徴がありません。</h2>
+        <% @unidentifiable_solutions.each do |unidentifiable_solution| %>
+            <p><%= unidentifiable_solution %>を差別化する特徴がありません。</p>
+        <% end %>
+        <table border="1">
+            <tr>
+                <th>料理\質問</th>
+                <% @questions.each do |q| %>
+                <th><%= q.message %></th>
+                <% end %>
+            </tr>
+            <% @features.each do |key, values| %>    
+                <tr>
+                    <th><%= key %></th>
+                    <% values.each do |value| %>
+                        <th><%= value %></th>
+                    <% end %>
+                </tr>
+            <% end %>
+        </table>
+    </body>
+    <footer>
+        
+    </footer>
+</html>
