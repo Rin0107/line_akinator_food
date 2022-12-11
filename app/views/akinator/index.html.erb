@@ -10,14 +10,14 @@
             <tr>
                 <th>料理\質問</th>
                 <% @questions.each do |q| %>
-                <th><% q.message %></th>
+                <th><%= q.message %></th>
                 <% end %>
             </tr>
             <% @solutions.each do |s| %>    
                 <tr>
-                    <th><% s.name %></th>
+                    <th><%= s.name %></th>
                     <% s.features.each do |f| %>
-                        <th><% f %></th>
+                        <th><%= f %></th>
                     <% end %>
                 </tr>
             <% end %>
