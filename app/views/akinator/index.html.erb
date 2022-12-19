@@ -11,6 +11,7 @@
         <% @unidentifiable_solutions.each do |unidentifiable_solution| %>
             <p><%= unidentifiable_solution %>を差別化する特徴がありません。</p>
         <% end %>
+        <%= 回答が「はい」の場合は1.0、「いいえ」の場合は-1.0とする。決められない場合は0.0としている。%>
         <table border="1">
             <tr>
                 <th>料理\質問</th>
