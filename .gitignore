@@ -32,10 +32,3 @@
 
 # .envファイルに記述した情報は外部には公開したくない情報なので、githubなどのリモートリポジトリへアップロードしないように
 /.env
-
-# remote pushが必要ないファイル
-/lib/*
-/test/*
-/app/cannels/*
-/app/jobs/*
-/app/mailers/*
