@@ -4,12 +4,14 @@ class AkinatorController < ApplicationController
     require 'uri'
 
     def index
-        # Solutionsを取得
+        # 選択肢の料理名を取得
+        # solutionsテーブルはfeaturesテーブルと1対多の関係
         @solutions = Solution.all
-        # Questionsを取得
+        # 「はい」か「いいえ」で答える質問を取得
         @questions = Question.all
-        # 空の配列を生成
+        # key:料理名、value:特徴の配列
         @features = {}
+
         @solutions.each do |s|
             s_features = []
             s.features.each do |f|
@@ -17,10 +19,11 @@ class AkinatorController < ApplicationController
             end
             @features[s.name] = s_features
         end
-        # feature.valuesが一致するs.nameをまとめるため、Setを準備
+        # 全く同じ特徴の配列をsetでまとめる
         set = Set.new(@features.values)
         unidentifiable_features = set.to_a
         @unidentifiable_solutions = []
+
         unidentifiable_features.each do |unidentifiable_feature|
             gathered_solutions = @features.select{|k,v| v == unidentifiable_feature}.keys
             if gathered_solutions.length > 1
