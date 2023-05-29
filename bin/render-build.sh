@@ -13,5 +13,5 @@ bundle exec rake db:migrate
 # bundle exec rake db:seed SECTION=q_3
 # bundle exec rake db:seed SECTION=q_4
 # bundle exec rake db:seed SECTION=q_5
-# bundle exec rake db:seed SECTION=f_4
-# bundle exec rake db:seed SECTION=q_6
+bundle exec rake db:seed SECTION=f_4
+bundle exec rake db:seed SECTION=q_6
